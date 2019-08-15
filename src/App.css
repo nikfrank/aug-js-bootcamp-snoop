@@ -59,6 +59,16 @@
   color: green;
 }
 
+.swanky-input-container span.invalid-email {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  color: red;
+}
+
+.swanky-input-container input:focus ~ span.invalid-email {
+  display: none;
+}
 
 .done-container {
   flex-basis: 100%;
@@ -81,6 +91,7 @@
     0px 1px 1px 0px rgba(0,0,0,0.14),
     0px 2px 1px -1px rgba(0,0,0,0.12);
 }
+
 
 .done-button:active {
   box-shadow: none;

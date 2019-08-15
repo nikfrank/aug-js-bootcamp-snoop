@@ -1,11 +1,16 @@
 import React from 'react';
 import './App.css';
 
+import emailRegex from './emailRegex';
+
 class App extends React.Component {
 
   state = {
     rapName: 'notorious NIK',
     albumSales: 1000000,
+
+    email: '',
+    isEmailValid: false,
   }
 
   done = ()=> {
@@ -18,6 +23,12 @@ class App extends React.Component {
     });
   }
 
+  setEmail = (event)=>
+    this.setState({
+      email: event.target.value,
+      isEmailValid: emailRegex.test( event.target.value ),
+    })
+
   render() {
     return (
       <div className="App">
@@ -27,6 +38,20 @@ class App extends React.Component {
             <label>
               <input value={this.state.rapName} onChange={this.setRapName} />
               <span className='title'>Rap Name</span>
+            </label>
+          </div>
+
+          <div className='card swanky-input-container'>
+            <label>
+              <input value={this.state.email} onChange={this.setEmail} />
+              <span className='title'>Email</span>
+              {
+                (!this.state.isEmailValid && this.state.email) ? (
+                  <span className='invalid-email'>
+                    Please enter a valid email
+                  </span>
+                ) : null
+              }
             </label>
           </div>
 
