@@ -67,7 +67,18 @@ class App extends React.Component {
               <span className='title'>Album Sales</span>
               {
                 this.state.albumSales >= 1000000 ? (
-                  <img src={goldRecord} />
+                  <div className='record-container'>
+
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                      .filter(sales => sales * 1000000 <= this.state.albumSales)
+                      .map(sales=> (
+                        <div className='gold-record' key={sales}>
+                          <img src={goldRecord} />
+                        </div>
+                      ))
+                    }
+
+                  </div>
                 ) : null
               }
             </label>
