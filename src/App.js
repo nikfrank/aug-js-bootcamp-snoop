@@ -12,6 +12,8 @@ class App extends React.Component {
 
     email: '',
     isEmailValid: false,
+
+    job: '',
   }
 
   done = ()=> {
@@ -31,6 +33,8 @@ class App extends React.Component {
     })
 
   setAlbumSales = event=> this.setState({ albumSales: event.target.value })
+
+  setJob = event=> this.setState({ job: event.target.value })
 
   render() {
     return (
@@ -81,6 +85,18 @@ class App extends React.Component {
                   </div>
                 ) : null
               }
+            </label>
+          </div>
+
+          <div className='card swanky-input-container'>
+            <label>
+              <select value={this.state.job} onChange={this.setJob}>
+                <option value=''>Select a Job</option>
+                <option value='rapper'>Rapper</option>
+                <option value='producer'>Producer</option>
+                <option value='distributor'>Distributor</option>
+              </select>
+              <span className='title'>Job</span>
             </label>
           </div>
 

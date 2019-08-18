@@ -20,7 +20,8 @@
   position: relative;
 }
 
-.swanky-input-container input {
+.swanky-input-container input,
+.swanky-input-container select {
   position: absolute;
   bottom: 2px;
   left: 2px;
@@ -32,12 +33,15 @@
   font-size: 22px;
   outline: none;
 
+  background-color: white;
+
   border-bottom: 1px solid black;
 
   transition: font-size 0.25s;
 }
 
-.swanky-input-container input:focus {
+.swanky-input-container input:focus,
+.swanky-input-container select:focus {
   font-size: 26px;
   border-bottom: 2px solid green;
 }
@@ -54,7 +58,8 @@
   transition: font-size 0.25s, color 1s;
 }
 
-.swanky-input-container input:focus + span.title {
+.swanky-input-container input:focus + span.title,
+.swanky-input-container select:focus + span.title {
   font-size: 12px;
   color: green;
 }
